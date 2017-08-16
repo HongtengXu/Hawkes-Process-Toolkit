@@ -10,9 +10,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear
-addpath('Simulation')
-addpath('Learning')
 
+setup
 options.N = 100; % the number of sequences
 options.Nmax = 100; % the maximum number of events per sequence
 options.Tmax = 30; % the maximum size of time window

@@ -12,8 +12,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear
-addpath('Simulation')
-addpath('Learning')
 
 options.N = 50; % the number of sequences
 options.Nmax = 100; % the maximum number of events per sequence
@@ -34,7 +32,7 @@ para1.A = reshape(para1.A, [D, 1, D]);
 para1.w = 1;
 Seqs1 = SimulationFast_Thinning_ExpHP(para1, options);
 
-disp('Thinning-based simulation of Hawkes processes with arbitrary kernel')
+disp('Thinning-based simulation of Hawkes processes with exponential kernel')
 para2 = para1;
 para2.kernel = 'exp';
 para2.landmark = 0;
