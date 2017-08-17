@@ -47,7 +47,7 @@ To use _THAP_, you just need to open your Matlab and run the "setup.m" file to a
 
 ## References and citation
 
-According to the functions you used in your work, you may want to cite the following papers:
+According to the functions used in your work, you may want to cite the following papers:
 
 _Simulation methods of Hawkes processes_:
 * Ogata, Yosihiko. "[On Lewis' simulation method for point processes.](http://ieeexplore.ieee.org/abstract/document/1056305/)" IEEE Transactions on Information Theory 27.1 (1981): 23-31. 
