@@ -49,6 +49,12 @@ To use _THAP_, you just need to open your Matlab and run the "setup.m" file to a
 
 According to the functions you used in your work, you may want to cite the following papers:
 
+_Simulation methods of Hawkes processes_:
+* Ogata, Yosihiko. "On Lewis' simulation method for point processes." IEEE Transactions on Information Theory 27.1 (1981): 23-31. [http://ieeexplore.ieee.org/abstract/document/1056305/](http://ieeexplore.ieee.org/abstract/document/1056305/)
+* Møller, Jesper, and Jakob G. Rasmussen. "Approximate simulation of Hawkes processes." Methodology and Computing in Applied Probability 8.1 (2006): 53-64. [https://link.springer.com/article/10.1007%2Fs11009-006-7288-z?LI=true](https://link.springer.com/article/10.1007%2Fs11009-006-7288-z?LI=true)
+* Dassios, Angelos, and Hongbiao Zhao. "Exact simulation of Hawkes process with exponentially decaying intensity." Electronic Communications in Probability 18 (2013). [http://emis.ams.org/journals/EJP-ECP/article/download/2717/2717-14258-1-PB.pdf](http://emis.ams.org/journals/EJP-ECP/article/download/2717/2717-14258-1-PB.pdf)
+
+
 _Learning algorithms of Hawkes processes_:
 * Zhou, Ke, Hongyuan Zha, and Le Song. "Learning social infectivity in sparse low-rank networks using multi-dimensional hawkes processes." Artificial Intelligence and Statistics. 2013. [http://proceedings.mlr.press/v31/zhou13a.html](http://proceedings.mlr.press/v31/zhou13a.html)
 * Zhou, Ke, Hongyuan Zha, and Le Song. "Learning triggering kernels for multi-dimensional hawkes processes." Proceedings of the 30th International Conference on Machine Learning (ICML-13). 2013. [http://proceedings.mlr.press/v28/zhou13.pdf](http://proceedings.mlr.press/v28/zhou13.pdf)
