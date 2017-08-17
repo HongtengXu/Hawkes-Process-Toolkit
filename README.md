@@ -2,7 +2,7 @@
 
 _THAP_ is a pure matlab toolbox for modeling and analysis of Hawkes process and its variants. The license is shown in [LICENSE](LICENSE).
 
-The project was started in 2017 by Hongteng Xu and Hongyuan Zha at the School of [Computational Science and Engineering] (https://www.cse.gatech.edu/) of [Georgia Institute of Technology](http://www.gatech.edu/), Atlanta, USA. 
+The project was started in 2017 by Hongteng Xu and Hongyuan Zha at the School of [Computational Science and Engineering](https://www.cse.gatech.edu/) of [Georgia Institute of Technology](http://www.gatech.edu/), Atlanta, USA. 
 
 ## Quick description
 
