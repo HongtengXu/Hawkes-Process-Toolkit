@@ -2,7 +2,7 @@
 
 _THAP_ is a pure matlab toolbox for modeling and analysis of Hawkes process and its variants. The license is shown in [LICENSE](LICENSE).
 
-The project was started in 2017 by Hongteng Xu and Hongyuan Zha at the School of Computational Science and Engineering (https://www.cse.gatech.edu/) of [Georgia Institute of Technology](http://www.gatech.edu/), Atlanta, USA. 
+The project was started in 2017 by Hongteng Xu and Hongyuan Zha at the School of [Computational Science and Engineering] (https://www.cse.gatech.edu/) of [Georgia Institute of Technology](http://www.gatech.edu/), Atlanta, USA. 
 
 ## Quick description
 
@@ -50,28 +50,27 @@ To use _THAP_, you just need to open your Matlab and run the "setup.m" file to a
 According to the functions you used in your work, you may want to cite the following papers:
 
 _Simulation methods of Hawkes processes_:
-* Ogata, Yosihiko. "On Lewis' simulation method for point processes." IEEE Transactions on Information Theory 27.1 (1981): 23-31. [http://ieeexplore.ieee.org/abstract/document/1056305/](http://ieeexplore.ieee.org/abstract/document/1056305/)
-* Møller, Jesper, and Jakob G. Rasmussen. "Approximate simulation of Hawkes processes." Methodology and Computing in Applied Probability 8.1 (2006): 53-64. [https://link.springer.com/article/10.1007%2Fs11009-006-7288-z?LI=true](https://link.springer.com/article/10.1007%2Fs11009-006-7288-z?LI=true)
-* Dassios, Angelos, and Hongbiao Zhao. "Exact simulation of Hawkes process with exponentially decaying intensity." Electronic Communications in Probability 18 (2013). [http://emis.ams.org/journals/EJP-ECP/article/download/2717/2717-14258-1-PB.pdf](http://emis.ams.org/journals/EJP-ECP/article/download/2717/2717-14258-1-PB.pdf)
-
+* Ogata, Yosihiko. "[On Lewis' simulation method for point processes.](http://ieeexplore.ieee.org/abstract/document/1056305/)" IEEE Transactions on Information Theory 27.1 (1981): 23-31. 
+* Møller, Jesper, and Jakob G. Rasmussen. "[Approximate simulation of Hawkes processes.](https://link.springer.com/article/10.1007%2Fs11009-006-7288-z?LI=true)" Methodology and Computing in Applied Probability 8.1 (2006): 53-64. 
+* Dassios, Angelos, and Hongbiao Zhao. "[Exact simulation of Hawkes process with exponentially decaying intensity.](http://emis.ams.org/journals/EJP-ECP/article/download/2717/2717-14258-1-PB.pdf)" Electronic Communications in Probability 18 (2013). 
 
 _Learning algorithms of Hawkes processes_:
-* Zhou, Ke, Hongyuan Zha, and Le Song. "Learning social infectivity in sparse low-rank networks using multi-dimensional hawkes processes." Artificial Intelligence and Statistics. 2013. [http://proceedings.mlr.press/v31/zhou13a.html](http://proceedings.mlr.press/v31/zhou13a.html)
-* Zhou, Ke, Hongyuan Zha, and Le Song. "Learning triggering kernels for multi-dimensional hawkes processes." Proceedings of the 30th International Conference on Machine Learning (ICML-13). 2013. [http://proceedings.mlr.press/v28/zhou13.pdf](http://proceedings.mlr.press/v28/zhou13.pdf)
-* Luo, Dixin, et al. "Multi-Task Multi-Dimensional Hawkes Processes for Modeling Event Sequences." IJCAI. 2015.[http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11299/11253](http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11299/11253)
-* Eichler, Michael, Rainer Dahlhaus, and Johannes Dueck. "Graphical modeling for multivariate hawkes processes with nonparametric link functions." Journal of Time Series Analysis 38.2 (2017): 225-242. [http://onlinelibrary.wiley.com/doi/10.1111/jtsa.12213/full](http://onlinelibrary.wiley.com/doi/10.1111/jtsa.12213/full)
+* Zhou, Ke, Hongyuan Zha, and Le Song. "[Learning social infectivity in sparse low-rank networks using multi-dimensional hawkes processes.](http://proceedings.mlr.press/v31/zhou13a.html)" Artificial Intelligence and Statistics. 2013. 
+* Zhou, Ke, Hongyuan Zha, and Le Song. "[Learning triggering kernels for multi-dimensional hawkes processes.](http://proceedings.mlr.press/v28/zhou13.pdf)" Proceedings of the 30th International Conference on Machine Learning (ICML-13). 2013. 
+* Luo, Dixin, et al. "[Multi-Task Multi-Dimensional Hawkes Processes for Modeling Event Sequences.](http://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/download/11299/11253)" IJCAI. 2015. 
+* Eichler, Michael, Rainer Dahlhaus, and Johannes Dueck. "[Graphical modeling for multivariate hawkes processes with nonparametric link functions.](http://onlinelibrary.wiley.com/doi/10.1111/jtsa.12213/full)" Journal of Time Series Analysis 38.2 (2017): 225-242. 
 
 _Time-varying Hawkes processes_: 
-* Xu, Hongteng, Dixin Luo, and Hongyuan Zha. "Learning Hawkes Processes from Short Doubly-Censored Event Sequences." arXiv preprint arXiv:1702.07013 (2017). [https://arxiv.org/pdf/1702.07013.pdf](https://arxiv.org/pdf/1702.07013.pdf)
-* Xu, Hongteng, et al. "Patient flow prediction via discriminative learning of mutually-correcting processes." IEEE transactions on Knowledge and Data Engineering 29.1 (2017): 157-171. [http://ieeexplore.ieee.org/abstract/document/7593326/](http://ieeexplore.ieee.org/abstract/document/7593326/)
+* Xu, Hongteng, Dixin Luo, and Hongyuan Zha. "[Learning Hawkes Processes from Short Doubly-Censored Event Sequences.](https://arxiv.org/pdf/1702.07013.pdf)" arXiv preprint arXiv:1702.07013 (2017). 
+* Xu, Hongteng, et al. "[Patient flow prediction via discriminative learning of mutually-correcting processes.](http://ieeexplore.ieee.org/abstract/document/7593326/)" IEEE transactions on Knowledge and Data Engineering 29.1 (2017): 157-171. 
 
 _Granger causality analysis of event sequences_: 
-* Xu, Hongteng, Mehrdad Farajtabar, and Hongyuan Zha. "Learning granger causality for hawkes processes." International Conference on Machine Learning. 2016. [http://proceedings.mlr.press/v48/xuc16.pdf](http://proceedings.mlr.press/v48/xuc16.pdf)
+* Xu, Hongteng, Mehrdad Farajtabar, and Hongyuan Zha. "[Learning granger causality for hawkes processes.](http://proceedings.mlr.press/v48/xuc16.pdf)" International Conference on Machine Learning. 2016. 
 
 _Clustering analysis of event sequences_:
-* Xu, Hongteng, and Hongyuan Zha. "A Dirichlet Mixture Model of Hawkes Processes for Event Sequence Clustering." arXiv preprint arXiv:1701.09177 (2017). [https://arxiv.org/pdf/1701.09177.pdf](https://arxiv.org/pdf/1701.09177.pdf)
-* Iwayama, Koji, Yoshito Hirata, and Kazuyuki Aihara. "Definition of distance for nonlinear time series analysis of marked point process data." Physics Letters A 381.4 (2017): 257-262. [http://www.sciencedirect.com/science/article/pii/S037596011631564X](http://www.sciencedirect.com/science/article/pii/S037596011631564X)
+* Xu, Hongteng, and Hongyuan Zha. "[A Dirichlet Mixture Model of Hawkes Processes for Event Sequence Clustering.](https://arxiv.org/pdf/1701.09177.pdf)" arXiv preprint arXiv:1701.09177 (2017).
+* Iwayama, Koji, Yoshito Hirata, and Kazuyuki Aihara. "[Definition of distance for nonlinear time series analysis of marked point process data.](http://www.sciencedirect.com/science/article/pii/S037596011631564X)" Physics Letters A 381.4 (2017): 257-262.
 
 _The usage of data_:
-* IPTV data: Luo, Dixin, et al. "You are what you watch and when you watch: Inferring household structures from iptv viewing data." IEEE Transactions on Broadcasting 60.1 (2014): 61-72. [http://ieeexplore.ieee.org/abstract/document/6717182/](http://ieeexplore.ieee.org/abstract/document/6717182/)
-* Linkedin data: Xu, Hongteng, Dixin Luo, and Hongyuan Zha. "Learning Hawkes Processes from Short Doubly-Censored Event Sequences." arXiv preprint arXiv:1702.07013 (2017). [https://arxiv.org/pdf/1702.07013.pdf](https://arxiv.org/pdf/1702.07013.pdf)
+* IPTV data: Luo, Dixin, et al. "[You are what you watch and when you watch: Inferring household structures from iptv viewing data.](http://ieeexplore.ieee.org/abstract/document/6717182/)" IEEE Transactions on Broadcasting 60.1 (2014): 61-72. 
+* Linkedin data: Xu, Hongteng, Dixin Luo, and Hongyuan Zha. "[Learning Hawkes Processes from Short Doubly-Censored Event Sequences.](https://arxiv.org/pdf/1702.07013.pdf)" arXiv preprint arXiv:1702.07013 (2017). 
