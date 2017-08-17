@@ -15,8 +15,11 @@ function Seqs = Simulation_Thinning_HP(para, options)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Seqs = struct('Time', [], 'Mark', []);
-
+Seqs = struct('Time', [], ...
+              'Mark', [], ...
+              'Start', [], ...
+              'Stop', [], ...
+              'Feature', []);
 tic
 for n = 1:options.N
 
@@ -57,7 +60,9 @@ for n = 1:options.N
     end
     Seqs(n).Time = History(1,:);
     Seqs(n).Mark = History(2,:);
-
+    Seqs(n).Start = 0;
+    Seqs(n).Stop = options.Tmax;
+    
     if mod(n, 10)==0 || n==options.N
         fprintf('#seq=%d/%d, #event=%d, time=%.2fsec\n', ...
             n, options.N, size(History,2), toc);

@@ -1,36 +1,29 @@
-function lambda = Intensity_TVHP( time, history, model, options )
+function lambda = Intensity_TVHP(t, History, T, mu, w, Period, Shift, MaxInfect, Type) 
+% INTHAWKESM  Intensity lambda(t) of a time-varying multi-dim Hawkes process
+%             
+% Inputs      t   - current interval 
+%             History   - historical event sequences
+%             T   - time interval
+%             mu - U*1 vector (unconditional intensities)
+%             w - parameters of decay function
+%             Period, Shift - U*U parameters of infectivity matrix
+% Outputs     lambda   - intensity 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% t: current time
-% mu: base intensity in R^U
-% At: time varying infectivity A(t) in R^{U*U}
-% history: historical events
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if isempty(History)
+    lambda = mu;
+else
+    Time = History(1, :);
+    index = Time<=t;
+    Time = Time(index);
+    Event = History(2, index);
 
+    lambda = mu;
 
-
-lambda = repmat( model.mu(:), [1, length(time)] );
-if ~isempty(history)
+    At = Infectivity_TVHP( T, t, Period, Shift, MaxInfect, Type );
     
-    switch options.type
-        case 'Est'
-            At = Infectivity_TV_Est(time, model);
-        case 'Syn'
-            At = Infectivity_TV_Syn(T, time, model);      
-    end
-    
-    for n = 1:length(time)
-
-        index = find(history(1,:)<=time(n));
-        decay = options.w*exp(-options.w*(time(n)-history(1,index)));
-        eventID = history(2, index);
+    for i = 1:length(Time)
+        ui = Event(i);
         
-        for u = 1:size(At,1)
-            lambda(u, n) = lambda(u, n) + decay(:)'*At(eventID, n, u);
-        end
-    end
-
+        lambda = lambda + At(:, ui).*exp(-w*(t-Time(i)));
+    end   
 end
-

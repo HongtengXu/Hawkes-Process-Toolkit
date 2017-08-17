@@ -16,8 +16,11 @@ function Seqs = Simulation_Branch_HP(para, options)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Seqs = struct('Time', [], 'Mark', []);
-
+Seqs = struct('Time', [], ...
+              'Mark', [], ...
+              'Start', [], ...
+              'Stop', [], ...
+              'Feature', []);
 tic
 for n = 1:options.N
     
@@ -77,7 +80,9 @@ for n = 1:options.N
     [~, index] = sort(History(1,:), 'ascend');
     Seqs(n).Time = History(1,index);
     Seqs(n).Mark = History(2,index);
-
+    Seqs(n).Start = 0;
+    Seqs(n).Stop = options.Tmax;
+    
     if mod(n, 10)==0 || n==options.N
         fprintf('#seq=%d/%d, #event=%d, time=%.2fsec\n', ...
             n, options.N, size(History,2), toc);

@@ -1,20 +1,16 @@
-function Seqs = SimulationFast_Thinning_ExpHP(para, options)
+function Seqs = Simulation_Thinning_TVHP( para, options )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% The fast simulation of Hawkes processes with exponential kernels
+% Simulate event sequence of time-varying multi-dimensional Hawkes process
 %
-% Reference:
-% Dassios, Angelos, and Hongbiao Zhao. 
-% "Exact simulation of Hawkes process with exponentially decaying intensity." 
-% Electronic Communications in Probability 18.62 (2013): 1-13.
-%
-% Provider:
-% Hongteng Xu @ Georgia Tech
-% June 13, 2017
+% N: the number of sequences
+% T: the time interval of each sequence
+% mu: intrinsic intensity vector
+% w: parameter of decay function
+% Period, Shift: parameters of infectivity matrix
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 Seqs = struct('Time', [], ...
               'Mark', [], ...
@@ -23,27 +19,28 @@ Seqs = struct('Time', [], ...
               'Feature', []);
 
 tic
-for n = 1:options.N
+for ns = 1:options.N
 
 
     t=0;
     History = [];
-
-    lambdat = para.mu;
-    mt = sum(lambdat);%SupIntensity_HP(t, History, para, options);
-
+    
+    lambda_t = Intensity_TVHP( t, History, para, options );
+    mt = sum(lambda_t);
+    
     while t<options.Tmax && size(History, 2)<options.Nmax
-
+        
         s = random('exp', 1/mt);
         U = rand;
 
-        lambda_ts = Intensity_Recurrent_HP(t+s, [], t, lambdat, para);
+        
+        lambda_ts = Intensity_TVHP( t+s, History, para, options );
         mts = sum(lambda_ts);
+
 
         %fprintf('s=%f, v=%f\n', s, mts/mt);        
         if t+s>options.Tmax || U>mts/mt
             t = t+s;
-            lambdat = lambda_ts;
         else
             u = rand*mts;
             sumIs = 0;
@@ -55,25 +52,21 @@ for n = 1:options.N
             end
             index = d;
 
-            
-            lambdat = Intensity_Recurrent_HP(t+s, index(1), t, lambdat, para);
             t = t+s;
             History=[History,[t;index(1)]];
         end
         
-        mt = sum(lambdat);
-        
+        lambda_t = Intensity_TVHP(t, History, para, options);
+        mt = sum(lambda_t);
     end
     
-    Seqs(n).Time = History(1,:);
-    Seqs(n).Mark = History(2,:);
-    Seqs(n).Start = 0;
-    Seqs(n).Stop = options.Tmax;
+    Seqs(ns).Time = History(1,:);
+    Seqs(ns).Mark = History(2,:);
+    Seqs(ns).Start = 0;
+    Seqs(ns).Stop = options.Tmax;
     
-    if mod(n, 10)==0 || n==options.N
+    if mod(ns, 10)==0 || ns==options.N
         fprintf('#seq=%d/%d, #event=%d, time=%.2fsec\n', ...
-            n, options.N, size(History,2), toc);
+            ns, options.N, size(History,2), toc);
     end
 end
-    
-    
