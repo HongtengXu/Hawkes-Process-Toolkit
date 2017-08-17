@@ -44,18 +44,20 @@ for o = 1:alg.outer
         for c = 1:length(Seqs)
             Time = Seqs(c).Time;
             Event = Seqs(c).Mark;
+            Tstart = Seqs(c).Start;
+            
             if isempty(alg.Tmax)
-                Tend = Time(end)+eps;
+                Tstop = Seqs(c).Stop;
             else
-                Tend = alg.Tmax;
+                Tstop = alg.Tmax;
                 indt = Time < alg.Tmax;
                 Time = Time(indt);
                 Event = Event(indt);
             end
 
-            Amu = Amu + Tend;
+            Amu = Amu + Tstop - Tstart;
 
-            dT = Tend - Time;
+            dT = Tstop - Time;
             GK = Kernel_Integration_Approx(dT, model);
 
             Nc = length(Time);
@@ -114,7 +116,7 @@ for o = 1:alg.outer
 
             end
 
-            NLL = NLL + Tend.*sum(muest);
+            NLL = NLL + (Tstop - Tstart).*sum(muest);
             NLL = NLL + sum( sum( GK.*sum(Aest(Event,:,:),3) ) );
 
         end

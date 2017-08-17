@@ -1,4 +1,4 @@
-function model = Learning_LS_Discrete( Seqs, model )
+function model = Learning_LS_Discrete( Seqs, model, alg )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -31,11 +31,22 @@ for n = 1:4
     for i = 1:length(Seqs)
         Time = Seqs(i).Time;
         Event = Seqs(i).Mark;
-        Th = floor(Time(end) ./ model.h);
+        Tstart = Seqs(i).Start;
+            
+        if isempty(model.Tmax)
+            Tstop = Seqs(i).Stop;
+        else
+            Tstop = model.Tmax;
+            indt = Time < model.Tmax;
+            Time = Time(indt);
+            Event = Event(indt);
+        end
+            
+        Th = floor((Tstop-Tstart) ./ model.h);
         Y = zeros(model.D, Th);
         for d = 1:model.D
             ind = Event == d;
-            Time_d = Time(ind);
+            Time_d = Time(ind) - Tstart;
             for t = 1:Th
                 td = find(Time_d>=(t-1)*model.h + (n-1)*dt & Time_d<t*model.h + (n-1)*dt);
                 Y(d, t) = length(td);

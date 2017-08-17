@@ -1,4 +1,4 @@
-function [model, Tmax] = Initialization_Discrete(Seqs, step, order)
+function model = Initialization_Discrete(Seqs, step, order)
 
 switch nargin
     case 1
@@ -27,3 +27,4 @@ for i = 1:length(Seqs)
     D(i) = max(Seqs(i).Mark);
 end
 model.D = max(D);
+model.Tmax = [];

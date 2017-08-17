@@ -43,10 +43,12 @@ for in = 1:alg.inner
 
         Time = Seqs(c).Time;
         Event = Seqs(c).Mark;
+        Tstart = Seqs(c).Start;
+            
         if isempty(alg.Tmax)
-            Tend = Time(end)+eps;
+            Tstop = Seqs(c).Stop;
         else
-            Tend = alg.Tmax;
+            Tstop = alg.Tmax;
             indt = Time < alg.Tmax;
             Time = Time(indt);
             Event = Event(indt);
@@ -54,7 +56,7 @@ for in = 1:alg.inner
 
         N = length(Time);
         % calculate the integral decay function in the log-likelihood function
-        G = Kernel_Integration(Tend - Time, model);
+        G = Kernel_Integration(Tstop - Time, model);
 
 
         TMPAA = zeros(size(A));
@@ -105,14 +107,14 @@ for in = 1:alg.inner
             TMPMuC(ui,:)=TMPMuC(ui,:)-pii;
                 
         end
-        LL = LL - Tend.*sum(mu);
+        LL = LL - (Tstop-Tstart).*sum(mu);
         tmp = sum(sum(repmat(G, [1,1,model.K]).*sum(A(Event,:,:,:),4),2),1);
         LL = LL - tmp(:)';
 
         % XX = (LL - max(LL));
         % EX(c,:)=(model.p'.*(exp(XX)+options.bias))./((exp(XX)+options.bias)*model.p);
             
-        MuB = MuB + Tend*EX(c,:);
+        MuB = MuB + (Tstop-Tstart)*EX(c,:);
         for k=1:model.K
             AA(:,:,k,:) = AA(:,:,k,:) + EX(c,k)*TMPAA(:,:,k,:);
             AB(:,:,k,:) = AB(:,:,k,:) + EX(c,k)*TMPAB(:,:,k,:);

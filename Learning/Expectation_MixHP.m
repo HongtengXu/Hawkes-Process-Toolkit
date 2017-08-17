@@ -15,10 +15,12 @@ for c = 1:length(Seqs)
 
     Time = Seqs(c).Time;
     Event = Seqs(c).Mark;
+    Tstart = Seqs(c).Start;
+            
     if isempty(alg.Tmax)
-        Tend = Time(end)+eps;
+        Tstop = Seqs(c).Stop;
     else
-        Tend = alg.Tmax;
+        Tstop = alg.Tmax;
         indt = Time < alg.Tmax;
         Time = Time(indt);
         Event = Event(indt);
@@ -26,7 +28,7 @@ for c = 1:length(Seqs)
             
     N = length(Time);
     % calculate the integral decay function in the log-likelihood function
-    G = Kernel_Integration(Tend - Time, model);
+    G = Kernel_Integration(Tstop - Time, model);
 
 
     LL = Elogpi;
@@ -58,7 +60,7 @@ for c = 1:length(Seqs)
 
 
     end
-    LL = LL - Tend.*sqrt(pi/2).*sum(model.b);
+    LL = LL - (Tstop-Tstart).*sqrt(pi/2).*sum(model.b);
     tmp = sum(sum(repmat(G, [1,1,model.K]).*...
         sum(model.beta(Event,:,:,:),4),1),2);
     LL = LL- tmp(:)';
