@@ -39,13 +39,13 @@ _Social science_:
 * Social network analysis: model user infectivity on social networks according to users' social behaviors. 
 * Talent flow modeling: model the job hopping behaviors between companies.
 
-## Requirements and Installation
+## Requirements and installation
 
 _THAP_ is compatible on Windows/Linux/OSX systems and only requires MatlabR2016a or newer. 
 To use _THAP_, you just need to open your Matlab and run the "setup.m" file to add paths of necessary functions.
 
 
-## References and Citation
+## References and citation
 
 According to the functions you used in your work, you may want to cite the following papers:
 
@@ -65,3 +65,7 @@ _Granger causality analysis of event sequences_:
 _Clustering analysis of event sequences_:
 * Xu, Hongteng, and Hongyuan Zha. "A Dirichlet Mixture Model of Hawkes Processes for Event Sequence Clustering." arXiv preprint arXiv:1701.09177 (2017). [https://arxiv.org/pdf/1701.09177.pdf](https://arxiv.org/pdf/1701.09177.pdf)
 * Iwayama, Koji, Yoshito Hirata, and Kazuyuki Aihara. "Definition of distance for nonlinear time series analysis of marked point process data." Physics Letters A 381.4 (2017): 257-262. [http://www.sciencedirect.com/science/article/pii/S037596011631564X](http://www.sciencedirect.com/science/article/pii/S037596011631564X)
+
+_The usage of data_:
+* IPTV data: Luo, Dixin, et al. "You are what you watch and when you watch: Inferring household structures from iptv viewing data." IEEE Transactions on Broadcasting 60.1 (2014): 61-72. [http://ieeexplore.ieee.org/abstract/document/6717182/](http://ieeexplore.ieee.org/abstract/document/6717182/)
+* Linkedin data: Xu, Hongteng, Dixin Luo, and Hongyuan Zha. "Learning Hawkes Processes from Short Doubly-Censored Event Sequences." arXiv preprint arXiv:1702.07013 (2017). [https://arxiv.org/pdf/1702.07013.pdf](https://arxiv.org/pdf/1702.07013.pdf)
