@@ -5,10 +5,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clear
-addpath('Simulation')
-addpath('Learning')
-
-
 
 options.N = 200; % the number of sequences
 options.Nmax = 100; % the maximum number of events per sequence
