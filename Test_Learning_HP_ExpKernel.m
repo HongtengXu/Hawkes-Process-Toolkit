@@ -24,7 +24,7 @@ nNum = options.N/nSeg;
 
 
 disp('Approximate simulation of Hawkes processes via branching process')
-disp('Complicated gaussian kernel')
+disp('Simple exponential kernel')
 para1.kernel = 'exp';
 para1.w = 1; 
 para1.landmark = 0;
@@ -62,12 +62,6 @@ for n = 1:nTest
         [A, Phi] = ImpactFunc( para1, options );
         
         disp('Maximum likelihood estimation and basis representation')        
-%         L = length(para1.landmark);
-%         model1.A = rand(D,L,D)./(L*D^2);
-%         model1.mu = rand(D,1)./D;
-%         model1.kernel = 'gauss';
-%         model1.w = para1.w;
-%         model1.landmark = para1.landmark;
         model1 = Initialization_Basis(Seqs1);
         model1 = Learning_MLE_Basis( Seqs1(1:i*nNum), model1, alg ); 
         [A1, Phi1] = ImpactFunc( model1, options );
@@ -82,7 +76,7 @@ for n = 1:nTest
 
         
         figure
-        title('Complicated Gaussian kernels')
+        title('Simple exponetial kernels')
         for u = 1:D
             for v = 1:D
                 subplot(D,D,D*(u-1)+v)
