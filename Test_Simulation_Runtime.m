@@ -6,9 +6,6 @@
 
 clear
 
-addpath('Learning')
-addpath('Simulation')
-
 D = 4; % the dimension of Hawkes processes
 para1.mu = rand(D,1)/D;
 para1.A = rand(D, D);
