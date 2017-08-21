@@ -53,6 +53,7 @@ MaxInfect = 0.8/(U^2);
 save('SynData_TVHP.mat','Seqs','Period','Shift','mu','w','T','MaxInfect','Type');
 
 %%
+% show the intensity function for an event sequence
 load SynData_TVHP.mat
 type = 2;
 Show_Intensity_TVHP(Seqs{type}(1), mu, T, w, Period, Shift, MaxInfect, type)
