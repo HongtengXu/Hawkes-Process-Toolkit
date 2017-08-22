@@ -41,7 +41,7 @@ model = cell(NN,1);
 for nn = 1:NN
 
     number = 200*nn;
-    model{nn} = Learning_TVHP( SeqTrain(1:number), option1 );
+    model{nn} = Learning_MLE_TVHP( SeqTrain(1:number), option1 );
 
 end
 
