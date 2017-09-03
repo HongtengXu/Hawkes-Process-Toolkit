@@ -23,7 +23,7 @@ muest = model.mu;
 
 
 
-D = size(Aest, 1);
+%D = size(Aest, 1);
 
 
 tic;
@@ -48,7 +48,7 @@ for c = 1:length(Seqs)
         Event = Event(indt);
     end
 
-    Amu = Amu + Tstop - Tstart;
+    %Amu = Amu + Tstop - Tstart;
 
     dT = Tstop - Time;
     GK = Kernel_Integration(dT, model);
@@ -63,8 +63,8 @@ for c = 1:length(Seqs)
         ti = Time(i);             
 
         lambdai = muest(ui);
-        pii = muest(ui);
-        pij = [];
+        %pii = muest(ui);
+        %pij = [];
 
 
         if i>1
