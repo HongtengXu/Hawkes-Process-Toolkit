@@ -22,7 +22,8 @@ Typical functions achieved by the toolbox include:
 A set of examples can be found at 
 - [https://github.com/HongtengXu/Hawkes-Process-Toolkit/](https://github.com/HongtengXu/Hawkes-Process-Toolkit/) 
 
-The paper associated to this toolbox will come soon! 
+The paper associated to this toolbox can be found at
+- [https://arxiv.org/abs/1708.09252](https://arxiv.org/abs/1708.09252)
 
 If you use _THAP_ in publications, we would appreciate citations of related papers.
 
