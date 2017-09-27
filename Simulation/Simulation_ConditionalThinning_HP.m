@@ -1,8 +1,10 @@
-function Seqs = Simulation_Thinning_HP(para, options)
-
+function SeqsNew = Simulation_ConditionalThinning_HP(...
+                                                SeqsOld, para, options)
+                                            
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Implementation of Ogata's thinning method to simulate Hawkes processes
+% conditioned on Historical event sequences (SeqsOld)
 %
 % Reference:
 % Ogata, Yosihiko. "On Lewis' simulation method for point processes." 
@@ -15,17 +17,17 @@ function Seqs = Simulation_Thinning_HP(para, options)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Seqs = struct('Time', [], ...
+SeqsNew = struct('Time', [], ...
               'Mark', [], ...
               'Start', [], ...
               'Stop', [], ...
               'Feature', []);
 tic
-for n = 1:options.N
+for n = 1:length(SeqsOld)
 
 
-    t=0;
-    History = [];
+    t=SeqsOld(n).Stop;
+    History = [SeqsOld(n).Time; SeqsOld(n).Mark];
 
     mt = SupIntensity_HP(t, History, para, options);
 
@@ -58,19 +60,18 @@ for n = 1:options.N
         mt = SupIntensity_HP(t, History, para, options);
         
     end
-    Seqs(n).Time = History(1,:);
-    Seqs(n).Mark = History(2,:);
-    Seqs(n).Start = 0;
-    Seqs(n).Stop = options.Tmax;
-    
-    index = find(Seqs(n).Time<=options.Tmax);
-    Seqs(n).Time = Seqs(n).Time(index);
-    Seqs(n).Mark = Seqs(n).Mark(index);
+    %History
+    SeqsNew(n).Time = History(1,:);
+    SeqsNew(n).Mark = History(2,:);
+    SeqsNew(n).Start = SeqsOld(n).Stop;
+    SeqsNew(n).Stop = options.Tmax;
+    index = find(SeqsOld(n).Stop<=SeqsNew(n).Time & ...
+        SeqsNew(n).Time<=options.Tmax);
+    SeqsNew(n).Time = SeqsNew(n).Time(index);
+    SeqsNew(n).Mark = SeqsNew(n).Mark(index);
     
     if mod(n, 10)==0 || n==options.N
         fprintf('#seq=%d/%d, #event=%d, time=%.2fsec\n', ...
-            n, options.N, length(Seqs(n).Time), toc);
+            n, options.N, length(SeqsNew(n).Mark), toc);
     end
 end
-    
-    

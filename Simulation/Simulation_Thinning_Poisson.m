@@ -36,6 +36,9 @@ while t<t_end
 
 end
 
+index = find(History(1,:)<t_end);
+History = History(:, index);
+
 
     
     

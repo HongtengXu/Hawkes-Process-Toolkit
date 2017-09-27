@@ -68,8 +68,12 @@ for ns=1:N
     Seqs(ns).Start = 0;
     Seqs(ns).Stop = T;
     
+    index = find(Seqs(ns).Time<=T);
+    Seqs(ns).Time = Seqs(ns).Time(index);
+    Seqs(ns).Mark = Seqs(ns).Mark(index);
+    
     if mod(ns, 10)==0 || ns==N
         fprintf('Type=%d, #seq=%d/%d, #event=%d, time=%.2fsec\n', ...
-            Type, ns, N, size(History,2), toc);
+            Type, ns, N, length(Seqs(ns).Mark), toc);
     end
 end
