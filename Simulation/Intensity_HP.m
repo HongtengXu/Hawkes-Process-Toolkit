@@ -32,6 +32,7 @@ if ~isempty(History)
     
 end
 
+lambda = lambda.*double(lambda>0);
 end
 
 

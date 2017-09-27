@@ -35,6 +35,7 @@ else
     mt = max(MT);
 end
 
+mt = mt.*(mt>0);
 end
 
 

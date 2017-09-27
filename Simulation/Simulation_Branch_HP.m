@@ -69,7 +69,7 @@ for n = 1:options.N
             end            
         end
         
-        if isempty(future_set)
+        if isempty(future_set) || size(History, 2)>options.Nmax
             break
         else
             current_set = future_set;
@@ -82,10 +82,13 @@ for n = 1:options.N
     Seqs(n).Mark = History(2,index);
     Seqs(n).Start = 0;
     Seqs(n).Stop = options.Tmax;
+    index = find(Seqs(n).Time<=options.Tmax);
+    Seqs(n).Time = Seqs(n).Time(index);
+    Seqs(n).Mark = Seqs(n).Mark(index);
     
     if mod(n, 10)==0 || n==options.N
         fprintf('#seq=%d/%d, #event=%d, time=%.2fsec\n', ...
-            n, options.N, size(History,2), toc);
+            n, options.N, length(Seqs(n).Mark), toc);
     end
 end
     
