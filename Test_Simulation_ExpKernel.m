@@ -52,7 +52,8 @@ alg.rho = 0.1;
 alg.inner = 4;
 alg.thres = 1e-5;
 alg.Tmax = [];
-
+alg.storeErr = 0;
+alg.storeLL = 0;
 
 
 disp('Evaluation of quality of synthetic data.')
