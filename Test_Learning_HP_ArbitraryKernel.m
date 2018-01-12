@@ -47,6 +47,9 @@ alg1.rho = 0.1;
 alg1.inner = 8;
 alg1.thres = 1e-5;
 alg1.Tmax = [];
+alg1.storeErr = 0;
+alg1.storeLL = 0;
+
 
 alg2.alpha = 10000;
 alg2.inner = 3;
