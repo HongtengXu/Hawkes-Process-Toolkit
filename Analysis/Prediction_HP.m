@@ -23,7 +23,7 @@ for n = 1:options.NumTest
         s = random('exp', 1/mt);
         U = rand;
 
-        lambda_ts = Intensity_HP(t+s, Hist, para, options);
+        lambda_ts = Intensity_HP(t+s, Hist, para);
         mts = sum(lambda_ts);
 
         %fprintf('s=%f, v=%f\n', s, mts/mt);        
@@ -45,7 +45,7 @@ for n = 1:options.NumTest
             count_expect(index(1)) = count_expect(index(1)) + 1;
         end
         
-        mt = SupIntensity(t, Hist, para, options);
+        mt = SupIntensity_HP(t, Hist, para, options);
         
     end
     
